@@ -27,26 +27,26 @@ func _on_wheat_ai_auto_pressed() -> void:
 	if profit >= wheat_auto_cost:
 		profit -= wheat_auto_cost
 		emit_signal("profit_changed", profit)
-		$Wheat/Control/WheatAIAuto.visible = false
-		$Wheat/Control/WheatAuto.visible = true
-		$Wheat/Control/WheatTimer.start(wheat_auto)
+		$ScrollContainer/VBoxContainer/Wheat/Control/WheatAIAuto.visible = false
+		$ScrollContainer/VBoxContainer/Wheat/Control/WheatAuto.visible = true
+		$ScrollContainer/VBoxContainer/Wheat/Control/WheatTimer.start(wheat_auto)
 	else:
 		pass
 		
 func _on_wheat_timer_timeout() -> void:
 	profit += wheat_amount
 	emit_signal("profit_changed", profit)
-	$Wheat/Control/WheatTimer.start(wheat_auto)
+	$ScrollContainer/VBoxContainer/Wheat/Control/WheatTimer.start(wheat_auto)
 
 #Carot
 func _on_carrot_unlock_pressed() -> void:
 	if profit >= carrot_button_cost:
 		profit -= carrot_button_cost
 		emit_signal("profit_changed", profit)
-		$Carrot/CarrotUnlock.disabled = true
-		$Carrot/CarrotUnlock.visible = false
-		$Carrot/CarrotButton.disabled = false
-		$Carrot/CarrotProfit.visible = true
+		$ScrollContainer/VBoxContainer/Carrot/CarrotUnlock.disabled = true
+		$ScrollContainer/VBoxContainer/Carrot/CarrotUnlock.visible = false
+		$ScrollContainer/VBoxContainer/Carrot/CarrotButton.disabled = false
+		$ScrollContainer/VBoxContainer/Carrot/CarrotProfit.visible = true
 	else:
 		pass
 		
@@ -60,10 +60,10 @@ func _on_beet_unlock_pressed() -> void:
 	if profit >= beet_button_cost:
 		profit -= beet_button_cost
 		emit_signal("profit_changed", profit)
-		$Beet/BeetUnlock.disabled = true
-		$Beet/BeetUnlock.visible = false
-		$Beet/BeetButton.disabled = false
-		$Beet/BeetProfit.visible = true
+		$ScrollContainer/VBoxContainer/Beet/BeetUnlock.disabled = true
+		$ScrollContainer/VBoxContainer/Beet/BeetUnlock.visible = false
+		$ScrollContainer/VBoxContainer/Beet/BeetButton.disabled = false
+		$ScrollContainer/VBoxContainer/Beet/BeetProfit.visible = true
 	else:
 		pass
 
