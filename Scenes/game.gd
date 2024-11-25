@@ -27,16 +27,16 @@ func _on_wheat_ai_auto_pressed() -> void:
 	if profit >= wheat_auto_cost:
 		profit -= wheat_auto_cost
 		emit_signal("profit_changed", profit)
-		$CropsMenu/VBoxContainer/Wheat/Control/WheatAIAuto.visible = false
+		$AIUpgradesMenu/VBoxContainer/Control/WheatAIAuto.visible = false
 		$CropsMenu/VBoxContainer/Wheat/Control/WheatAuto.visible = true
-		$CropsMenu/VBoxContainer/Wheat/Control/WheatTimer.start(wheat_auto)
+		$AIUpgradesMenu/VBoxContainer/Control/WheatTimer.start(wheat_auto)
 	else:
 		pass
 		
 func _on_wheat_timer_timeout() -> void:
 	profit += wheat_amount
 	emit_signal("profit_changed", profit)
-	$CropsMenu/VBoxContainer/Wheat/Control/WheatTimer.start(wheat_auto)
+	$AIUpgradesMenu/VBoxContainer/Control/WheatTimer.start(wheat_auto)
 
 #Carot
 func _on_carrot_unlock_pressed() -> void:
