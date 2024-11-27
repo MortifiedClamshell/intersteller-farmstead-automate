@@ -10,6 +10,8 @@ var wheat_auto = 1
 #Carrot variables
 var carrot_button_cost = 25
 var carrot_amount = 5
+var carrot_auto_cost = 30
+var carrot_auto = 1
 
 #Beet variables
 var beet_button_cost = 250
@@ -27,16 +29,16 @@ func _on_wheat_ai_auto_pressed() -> void:
 	if profit >= wheat_auto_cost:
 		profit -= wheat_auto_cost
 		emit_signal("profit_changed", profit)
-		$AIUpgradesMenu/VBoxContainer/Control/WheatAIAuto.visible = false
-		$CropsMenu/VBoxContainer/Wheat/Control/WheatAuto.visible = true
-		$AIUpgradesMenu/VBoxContainer/Control/WheatTimer.start(wheat_auto)
+		#$AIUpgradesMenu/VBoxContainer/WheatAuto/WheatAIAuto.visible = false
+		$CropsMenu/VBoxContainer/Wheat/WheatAuto/WheatAuto.visible = true
+		$AIUpgradesMenu/VBoxContainer/WheatAuto/WheatTimer.start(wheat_auto)
 	else:
 		pass
 		
 func _on_wheat_timer_timeout() -> void:
 	profit += wheat_amount
 	emit_signal("profit_changed", profit)
-	$AIUpgradesMenu/VBoxContainer/Control/WheatTimer.start(wheat_auto)
+	$AIUpgradesMenu/VBoxContainer/WheatAuto/WheatTimer.start(wheat_auto)
 
 #Carot
 func _on_carrot_unlock_pressed() -> void:
@@ -47,6 +49,7 @@ func _on_carrot_unlock_pressed() -> void:
 		$CropsMenu/VBoxContainer/Carrot/CarrotUnlock.visible = false
 		$CropsMenu/VBoxContainer/Carrot/CarrotButton.disabled = false
 		$CropsMenu/VBoxContainer/Carrot/CarrotProfit.visible = true
+		$AIUpgradesMenu/VBoxContainer/CarrotAuto.visible = true
 	else:
 		pass
 		
@@ -54,7 +57,22 @@ func _on_carrot_unlock_pressed() -> void:
 func _on_carrot_button_button_down() -> void:
 	profit += carrot_amount
 	emit_signal("profit_changed", profit)
+
+func _on_carrot_ai_auto_pressed() -> void:
+	if profit >= carrot_auto_cost:
+		profit -= carrot_auto_cost
+		emit_signal("profit_changed", profit)
+		#$AIUpgradesMenu/VBoxContainer/CarrotAuto/CarrotAIAuto.visible = false
+		$CropsMenu/VBoxContainer/Carrot/CarrotAuto/CarrotAuto.visible = true
+		$AIUpgradesMenu/VBoxContainer/CarrotAuto/CarrotTimer.start(wheat_auto)
+	else:
+		pass
 	
+func _on_carrot_timer_timeout() -> void:
+	profit += carrot_amount
+	emit_signal("profit_changed", profit)
+	$AIUpgradesMenu/VBoxContainer/CarrotAuto/CarrotTimer.start(carrot_auto)
+
 #Beet
 func _on_beet_unlock_pressed() -> void:
 	if profit >= beet_button_cost:

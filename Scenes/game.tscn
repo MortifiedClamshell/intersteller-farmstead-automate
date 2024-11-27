@@ -82,10 +82,10 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "1 Space Money"
 
-[node name="Control" type="Control" parent="CropsMenu/VBoxContainer/Wheat"]
+[node name="WheatAuto" type="Control" parent="CropsMenu/VBoxContainer/Wheat"]
 layout_mode = 2
 
-[node name="WheatAuto" type="Label" parent="CropsMenu/VBoxContainer/Wheat/Control"]
+[node name="WheatAuto" type="Label" parent="CropsMenu/VBoxContainer/Wheat/WheatAuto"]
 visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
@@ -119,6 +119,21 @@ text = "5 Space Money"
 custom_minimum_size = Vector2(300, 75)
 layout_mode = 2
 text = "Unlock for 25 Space Money"
+
+[node name="CarrotAuto" type="Control" parent="CropsMenu/VBoxContainer/Carrot"]
+layout_mode = 2
+
+[node name="CarrotAuto" type="Label" parent="CropsMenu/VBoxContainer/Carrot/CarrotAuto"]
+visible = false
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 0
+offset_left = 100.0
+offset_top = -25.0
+offset_right = 200.0
+offset_bottom = 25.0
+text = "1 Carrot per Second"
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="Beet" type="CenterContainer" parent="CropsMenu/VBoxContainer"]
 layout_mode = 2
@@ -177,17 +192,31 @@ offset_bottom = 617.0
 custom_minimum_size = Vector2(200, 900)
 layout_mode = 2
 
-[node name="Control" type="Control" parent="AIUpgradesMenu/VBoxContainer"]
+[node name="WheatAuto" type="Control" parent="AIUpgradesMenu/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
 layout_mode = 2
 
-[node name="WheatAIAuto" type="Button" parent="AIUpgradesMenu/VBoxContainer/Control"]
+[node name="WheatAIAuto" type="Button" parent="AIUpgradesMenu/VBoxContainer/WheatAuto"]
 layout_mode = 2
 offset_right = 200.0
 offset_bottom = 60.0
-text = "Unlock AI Automate
+text = "Unlock Wheat AI
 30 Space Money"
 
-[node name="WheatTimer" type="Timer" parent="AIUpgradesMenu/VBoxContainer/Control"]
+[node name="WheatTimer" type="Timer" parent="AIUpgradesMenu/VBoxContainer/WheatAuto"]
+
+[node name="CarrotAuto" type="Control" parent="AIUpgradesMenu/VBoxContainer"]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+
+[node name="CarrotAIAuto" type="Button" parent="AIUpgradesMenu/VBoxContainer/CarrotAuto"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 60.0
+text = "Unlock Carrot AI
+150 Space Money"
+
+[node name="CarrotTimer" type="Timer" parent="AIUpgradesMenu/VBoxContainer/CarrotAuto"]
 
 [node name="ButtonUpgradesMenu" type="ScrollContainer" parent="."]
 layout_mode = 0
@@ -219,5 +248,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="CropsMenu/VBoxContainer/Carrot/CarrotUnlock" to="." method="_on_carrot_unlock_pressed"]
 [connection signal="button_down" from="CropsMenu/VBoxContainer/Beet/BeetButton" to="." method="_on_beet_button_button_down"]
 [connection signal="pressed" from="CropsMenu/VBoxContainer/Beet/BeetUnlock" to="." method="_on_beet_unlock_pressed"]
-[connection signal="pressed" from="AIUpgradesMenu/VBoxContainer/Control/WheatAIAuto" to="." method="_on_wheat_ai_auto_pressed"]
-[connection signal="timeout" from="AIUpgradesMenu/VBoxContainer/Control/WheatTimer" to="." method="_on_wheat_timer_timeout"]
+[connection signal="pressed" from="AIUpgradesMenu/VBoxContainer/WheatAuto/WheatAIAuto" to="." method="_on_wheat_ai_auto_pressed"]
+[connection signal="timeout" from="AIUpgradesMenu/VBoxContainer/WheatAuto/WheatTimer" to="." method="_on_wheat_timer_timeout"]
+[connection signal="pressed" from="AIUpgradesMenu/VBoxContainer/CarrotAuto/CarrotAIAuto" to="." method="_on_carrot_ai_auto_pressed"]
+[connection signal="timeout" from="AIUpgradesMenu/VBoxContainer/CarrotAuto/CarrotTimer" to="." method="_on_carrot_timer_timeout"]
