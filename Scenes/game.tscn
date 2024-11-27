@@ -83,18 +83,19 @@ theme_override_font_sizes/font_size = 20
 text = "1 Space Money"
 
 [node name="WheatAuto" type="Control" parent="CropsMenu/VBoxContainer/Wheat"]
+visible = false
 layout_mode = 2
 
 [node name="WheatAuto" type="Label" parent="CropsMenu/VBoxContainer/Wheat/WheatAuto"]
-visible = false
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 2
 offset_left = 100.0
-offset_top = -25.0
-offset_right = 200.0
-offset_bottom = 25.0
+offset_top = -45.0
+offset_right = 225.0
+offset_bottom = 45.0
 text = "1 Wheat per Second"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Carrot" type="CenterContainer" parent="CropsMenu/VBoxContainer"]
@@ -193,26 +194,28 @@ custom_minimum_size = Vector2(200, 900)
 layout_mode = 2
 
 [node name="WheatAuto" type="Control" parent="AIUpgradesMenu/VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
+custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
 
 [node name="WheatAIAuto" type="Button" parent="AIUpgradesMenu/VBoxContainer/WheatAuto"]
 layout_mode = 2
 offset_right = 200.0
-offset_bottom = 60.0
+offset_bottom = 90.0
 text = "Unlock Wheat AI
 30 Space Money"
+autowrap_mode = 2
 
 [node name="WheatTimer" type="Timer" parent="AIUpgradesMenu/VBoxContainer/WheatAuto"]
 
 [node name="CarrotAuto" type="Control" parent="AIUpgradesMenu/VBoxContainer"]
-custom_minimum_size = Vector2(200, 60)
+visible = false
+custom_minimum_size = Vector2(200, 90)
 layout_mode = 2
 
 [node name="CarrotAIAuto" type="Button" parent="AIUpgradesMenu/VBoxContainer/CarrotAuto"]
 layout_mode = 0
 offset_right = 200.0
-offset_bottom = 60.0
+offset_bottom = 90.0
 text = "Unlock Carrot AI
 150 Space Money"
 
