@@ -122,18 +122,19 @@ layout_mode = 2
 text = "Unlock for 25 Space Money"
 
 [node name="CarrotAuto" type="Control" parent="CropsMenu/VBoxContainer/Carrot"]
+visible = false
 layout_mode = 2
 
 [node name="CarrotAuto" type="Label" parent="CropsMenu/VBoxContainer/Carrot/CarrotAuto"]
-visible = false
-custom_minimum_size = Vector2(100, 50)
+custom_minimum_size = Vector2(145, 90)
 layout_mode = 0
 offset_left = 100.0
-offset_top = -25.0
+offset_top = -45.0
 offset_right = 200.0
-offset_bottom = 25.0
+offset_bottom = 45.0
 text = "1 Carrot per Second"
 horizontal_alignment = 1
+vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Beet" type="CenterContainer" parent="CropsMenu/VBoxContainer"]
@@ -218,6 +219,7 @@ offset_right = 200.0
 offset_bottom = 90.0
 text = "Unlock Carrot AI
 150 Space Money"
+autowrap_mode = 2
 
 [node name="CarrotTimer" type="Timer" parent="AIUpgradesMenu/VBoxContainer/CarrotAuto"]
 
